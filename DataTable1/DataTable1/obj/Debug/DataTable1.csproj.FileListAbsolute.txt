@@ -1,0 +1,8 @@
+C:\Users\y7709\source\repos\New_Tailor_Shop\DataTable1\DataTable1\bin\Debug\DataTable1.exe.config
+C:\Users\y7709\source\repos\New_Tailor_Shop\DataTable1\DataTable1\bin\Debug\DataTable1.exe
+C:\Users\y7709\source\repos\New_Tailor_Shop\DataTable1\DataTable1\bin\Debug\DataTable1.pdb
+C:\Users\y7709\source\repos\New_Tailor_Shop\DataTable1\DataTable1\obj\Debug\DataTable1.csproj.AssemblyReference.cache
+C:\Users\y7709\source\repos\New_Tailor_Shop\DataTable1\DataTable1\obj\Debug\DataTable1.csproj.CoreCompileInputs.cache
+C:\Users\y7709\source\repos\New_Tailor_Shop\DataTable1\DataTable1\obj\Debug\DataTable1.exe
+C:\Users\y7709\source\repos\New_Tailor_Shop\DataTable1\DataTable1\obj\Debug\DataTable1.pdb
+C:\Users\y7709\source\repos\New_Tailor_Shop\DataTable1\DataTable1\obj\Debug\DataTable1.exe.config
