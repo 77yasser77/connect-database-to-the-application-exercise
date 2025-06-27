@@ -1,0 +1,8 @@
+C:\Users\y7709\source\repos\GitHubNew\DataTable\DataTable\bin\Debug\DataTable.exe.config
+C:\Users\y7709\source\repos\GitHubNew\DataTable\DataTable\bin\Debug\DataTable.exe
+C:\Users\y7709\source\repos\GitHubNew\DataTable\DataTable\bin\Debug\DataTable.pdb
+C:\Users\y7709\source\repos\GitHubNew\DataTable\DataTable\obj\Debug\DataTableExample.csproj.AssemblyReference.cache
+C:\Users\y7709\source\repos\GitHubNew\DataTable\DataTable\obj\Debug\DataTableExample.csproj.CoreCompileInputs.cache
+C:\Users\y7709\source\repos\GitHubNew\DataTable\DataTable\obj\Debug\DataTable.exe
+C:\Users\y7709\source\repos\GitHubNew\DataTable\DataTable\obj\Debug\DataTable.pdb
+C:\Users\y7709\source\repos\GitHubNew\DataTable\DataTable\obj\Debug\DataTable.exe.config
