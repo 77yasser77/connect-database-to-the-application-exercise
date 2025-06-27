@@ -43,11 +43,67 @@ namespace DataTableExample
             Console.WriteLine("\t|_________________________________________________________________________________________|");
 
    
-            Console.WriteLine("\n\n\tAVG Salary: {0}", TableCount);
+            Console.WriteLine("\n\n\tCount     : {0}", TableCount);
             Console.WriteLine("\n\tSUM Salary: {0}", TableSumSalary);
             Console.WriteLine("\n\tAVG Salary: {0}", TableSumSalary);
             Console.WriteLine("\n\tMaX Salary: {0}", TableMaxSalary);
-            Console.WriteLine("\n\tMIN Salary: {0}", TableMinSalary);
+            Console.WriteLine("\n\tMIN Salary: {0}\n\n", TableMinSalary);
+
+
+            DataRow[] ResaltRow;
+
+            ResaltRow= Table.Select("Country='USA' or Country='UK'");
+
+          TableCount = ResaltRow.Count();
+          TableSumSalary = Convert.ToDouble(Table.Compute("SUM(Salary)", "Country='USA' or Country='UK'"));
+          TableAvgSalary = Convert.ToDouble(Table.Compute("Avg(Salary)", "Country='USA' or Country='UK'"));
+          TableMaxSalary = Convert.ToDouble(Table.Compute("Max(Salary)", "Country='USA' or Country='UK'"));
+          TableMinSalary = Convert.ToDouble(Table.Compute("Min(Salary)", "Country='USA' or Country='UK'"));
+            Console.WriteLine("\t _________________________________________________________________________________________");
+            Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
+
+            foreach (DataRow row in ResaltRow)
+            {
+                Console.WriteLine("\t|-----------------------------------------------------------------------------------------|");
+                Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", row["ID"], row["Name"], row["Country"], row["Salary"], row["Date"]);
+            }
+
+            Console.WriteLine("\t|_________________________________________________________________________________________|");
+
+            Console.WriteLine("\n\n\tCount     : {0}", TableCount);
+            Console.WriteLine("\n\tSUM Salary: {0}", TableSumSalary);
+            Console.WriteLine("\n\tAVG Salary: {0}", TableSumSalary);
+            Console.WriteLine("\n\tMaX Salary: {0}", TableMaxSalary);
+            Console.WriteLine("\n\tMIN Salary: {0}\n\n", TableMinSalary);
+
+
+
+
+
+
+            ResaltRow = Table.Select("Salary >= 60000");
+
+            TableCount = ResaltRow.Count();
+            TableSumSalary = Convert.ToDouble(Table.Compute("SUM(Salary)", "Salary >= 60000"));
+            TableAvgSalary = Convert.ToDouble(Table.Compute("Avg(Salary)", "Salary >= 60000"));
+            TableMaxSalary = Convert.ToDouble(Table.Compute("Max(Salary)", "Salary >= 60000"));
+            TableMinSalary = Convert.ToDouble(Table.Compute("Min(Salary)", "Salary >= 60000"));
+            Console.WriteLine("\t _________________________________________________________________________________________");
+            Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
+
+            foreach (DataRow row in ResaltRow)
+            {
+                Console.WriteLine("\t|-----------------------------------------------------------------------------------------|");
+                Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", row["ID"], row["Name"], row["Country"], row["Salary"], row["Date"]);
+            }
+
+            Console.WriteLine("\t|_________________________________________________________________________________________|");
+
+            Console.WriteLine("\n\n\tCount     : {0}", TableCount);
+            Console.WriteLine("\n\tSUM Salary: {0}", TableSumSalary);
+            Console.WriteLine("\n\tAVG Salary: {0}", TableSumSalary);
+            Console.WriteLine("\n\tMaX Salary: {0}", TableMaxSalary);
+            Console.WriteLine("\n\tMIN Salary: {0}\n\n", TableMinSalary);
         }
     }
 }
