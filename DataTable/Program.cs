@@ -129,7 +129,7 @@ namespace DataTableExample
             Table.DefaultView.Sort = "Name ASC";
             Table = Table.DefaultView.ToTable();
 
-            Console.WriteLine("\n\n\t _________________________________________________________________________________________");
+            Console.WriteLine("\n\t _________________________________________________________________________________________");
             Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
 
             foreach (DataRow row in Table.Rows)
@@ -157,7 +157,7 @@ namespace DataTableExample
             }
             //Table.AcceptChanges();   using this if you want update in DataBases
 
-            Console.WriteLine("\n\n\t _________________________________________________________________________________________");
+            Console.WriteLine("\n\t _________________________________________________________________________________________");
             Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
 
             foreach (DataRow row in Table.Rows)
@@ -187,7 +187,22 @@ namespace DataTableExample
 
             Console.WriteLine("\nUpdating Employee ID = 1 \n");
 
-            Console.WriteLine("\n\n\t _________________________________________________________________________________________");
+            Console.WriteLine("\n\t _________________________________________________________________________________________");
+            Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
+
+            foreach (DataRow row in Table.Rows)
+            {
+                Console.WriteLine("\t|-----------------------------------------------------------------------------------------|");
+                Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", row["ID"], row["Name"], row["Country"], row["Salary"], row["Date"]);
+            }
+
+            Console.WriteLine("\t|_________________________________________________________________________________________|");
+
+
+
+            Console.WriteLine("Table Cleared");
+            Table.Clear();
+            Console.WriteLine("\n\t _________________________________________________________________________________________");
             Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
 
             foreach (DataRow row in Table.Rows)
