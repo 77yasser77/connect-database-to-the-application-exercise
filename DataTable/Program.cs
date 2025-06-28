@@ -149,13 +149,43 @@ namespace DataTableExample
 
             Console.WriteLine("\nDelete Row\n");
 
-            DataRow[] DeleteRow = Table.Select("ID=3");
+             ResaltRow = Table.Select("ID=3");
 
-            foreach (var Row in DeleteRow )
+            foreach (var Row in ResaltRow)
             {
                 Row.Delete();
             }
             //Table.AcceptChanges();   using this if you want update in DataBases
+
+            Console.WriteLine("\n\n\t _________________________________________________________________________________________");
+            Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
+
+            foreach (DataRow row in Table.Rows)
+            {
+                Console.WriteLine("\t|-----------------------------------------------------------------------------------------|");
+                Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", row["ID"], row["Name"], row["Country"], row["Salary"], row["Date"]);
+            }
+
+            Console.WriteLine("\t|_________________________________________________________________________________________|");
+
+
+
+
+
+
+
+
+
+            ResaltRow = Table.Select("ID=1");
+
+            foreach(var Row in ResaltRow)
+            {
+                Row["Name"] = "yaseer";
+                Row["Salary"] = 10000;
+            }
+
+
+            Console.WriteLine("\nUpdating Employee ID = 1 \n");
 
             Console.WriteLine("\n\n\t _________________________________________________________________________________________");
             Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
