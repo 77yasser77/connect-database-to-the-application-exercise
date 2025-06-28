@@ -104,6 +104,44 @@ namespace DataTableExample
             Console.WriteLine("\n\tAVG Salary: {0}", TableSumSalary);
             Console.WriteLine("\n\tMaX Salary: {0}", TableMaxSalary);
             Console.WriteLine("\n\tMIN Salary: {0}\n\n", TableMinSalary);
+
+
+
+
+            Table.DefaultView.Sort = "ID desc";
+
+            Table = Table.DefaultView.ToTable();
+
+
+            Console.WriteLine("\n\n\t _________________________________________________________________________________________");
+            Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
+
+            foreach (DataRow row in Table.Rows)
+            {
+                Console.WriteLine("\t|-----------------------------------------------------------------------------------------|");
+                Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", row["ID"], row["Name"], row["Country"], row["Salary"], row["Date"]);
+            }
+
+            Console.WriteLine("\t|_________________________________________________________________________________________|");
+
+
+
+            Table.DefaultView.Sort = "Name ASC";
+            Table = Table.DefaultView.ToTable();
+
+            Console.WriteLine("\n\n\t _________________________________________________________________________________________");
+            Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
+
+            foreach (DataRow row in Table.Rows)
+            {
+                Console.WriteLine("\t|-----------------------------------------------------------------------------------------|");
+                Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", row["ID"], row["Name"], row["Country"], row["Salary"], row["Date"]);
+            }
+
+            Console.WriteLine("\t|_________________________________________________________________________________________|");
+
+
+
         }
     }
 }
