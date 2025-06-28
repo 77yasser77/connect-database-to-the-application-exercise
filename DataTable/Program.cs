@@ -140,6 +140,33 @@ namespace DataTableExample
 
             Console.WriteLine("\t|_________________________________________________________________________________________|");
 
+            //-----------------
+
+
+            Table.DefaultView.Sort = "ID ASC";
+            Table = Table.DefaultView.ToTable();
+
+
+            Console.WriteLine("\nDelete Row\n");
+
+            DataRow[] DeleteRow = Table.Select("ID=3");
+
+            foreach (var Row in DeleteRow )
+            {
+                Row.Delete();
+            }
+            //Table.AcceptChanges();   using this if you want update in DataBases
+
+            Console.WriteLine("\n\n\t _________________________________________________________________________________________");
+            Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
+
+            foreach (DataRow row in Table.Rows)
+            {
+                Console.WriteLine("\t|-----------------------------------------------------------------------------------------|");
+                Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", row["ID"], row["Name"], row["Country"], row["Salary"], row["Date"]);
+            }
+
+            Console.WriteLine("\t|_________________________________________________________________________________________|");
 
 
         }
