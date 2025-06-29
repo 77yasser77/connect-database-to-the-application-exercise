@@ -19,6 +19,11 @@ namespace DataTableExample
             Table.Columns.Add("Salary", typeof(Double));
             Table.Columns.Add("Date", typeof(DateTime));
 
+            DataColumn[] PK = new DataColumn[1] ;
+            PK[0] = Table.Columns["ID"];
+            Table.PrimaryKey = PK;
+
+
 
             Table.Rows.Add(1, "John Doe", "USA", 50000.00, DateTime.Now);
             Table.Rows.Add(2, "Jane Smith", "UK", 60000.00, DateTime.Now);
@@ -212,6 +217,14 @@ namespace DataTableExample
             }
 
             Console.WriteLine("\t|_________________________________________________________________________________________|");
+
+
+
+
+
+
+
+
 
 
         }
