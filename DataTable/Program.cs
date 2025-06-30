@@ -19,7 +19,7 @@ namespace DataTableExample
             Table.Columns.Add("Salary", typeof(Double));
             Table.Columns.Add("Date", typeof(DateTime));
 
-            DataColumn[] PK = new DataColumn[1] ;
+            DataColumn[] PK = new DataColumn[1];
             PK[0] = Table.Columns["ID"];
             Table.PrimaryKey = PK;
 
@@ -30,13 +30,7 @@ namespace DataTableExample
             Table.Rows.Add(3, "Sam Brown", "Canada", 55000.00, DateTime.Now);
             Table.Rows.Add(4, "Lisa White", "Australia", 70000.00, DateTime.Now);
 
-
-            int TableCount = Table.Rows.Count;
-            double TableSumSalary = Convert.ToDouble(Table.Compute("SUM(Salary)", string.Empty));
-            double TableAvgSalary = Convert.ToDouble(Table.Compute("Avg(Salary)", string.Empty));
-            double TableMaxSalary = Convert.ToDouble(Table.Compute("Max(Salary)", string.Empty));
-            double TableMinSalary = Convert.ToDouble(Table.Compute("Min(Salary)", string.Empty));
-            Console.WriteLine("\t _________________________________________________________________________________________");
+   Console.WriteLine("\t _________________________________________________________________________________________");
             Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
 
             foreach (DataRow row in Table.Rows)
@@ -44,10 +38,16 @@ namespace DataTableExample
                 Console.WriteLine("\t|-----------------------------------------------------------------------------------------|");
                 Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", row["ID"], row["Name"], row["Country"], row["Salary"], row["Date"]);
             }
-           
+
             Console.WriteLine("\t|_________________________________________________________________________________________|");
 
-   
+
+            int TableCount = Table.Rows.Count;
+            double TableSumSalary = Convert.ToDouble(Table.Compute("SUM(Salary)", string.Empty));
+            double TableAvgSalary = Convert.ToDouble(Table.Compute("Avg(Salary)", string.Empty));
+            double TableMaxSalary = Convert.ToDouble(Table.Compute("Max(Salary)", string.Empty));
+            double TableMinSalary = Convert.ToDouble(Table.Compute("Min(Salary)", string.Empty));
+
             Console.WriteLine("\n\n\tCount     : {0}", TableCount);
             Console.WriteLine("\n\tSUM Salary: {0}", TableSumSalary);
             Console.WriteLine("\n\tAVG Salary: {0}", TableSumSalary);
@@ -57,13 +57,13 @@ namespace DataTableExample
 
             DataRow[] ResaltRow;
 
-            ResaltRow= Table.Select("Country='USA' or Country='UK'");
+            ResaltRow = Table.Select("Country='USA' or Country='UK'");
 
-          TableCount = ResaltRow.Count();
-          TableSumSalary = Convert.ToDouble(Table.Compute("SUM(Salary)", "Country='USA' or Country='UK'"));
-          TableAvgSalary = Convert.ToDouble(Table.Compute("Avg(Salary)", "Country='USA' or Country='UK'"));
-          TableMaxSalary = Convert.ToDouble(Table.Compute("Max(Salary)", "Country='USA' or Country='UK'"));
-          TableMinSalary = Convert.ToDouble(Table.Compute("Min(Salary)", "Country='USA' or Country='UK'"));
+            TableCount = ResaltRow.Count();
+            TableSumSalary = Convert.ToDouble(Table.Compute("SUM(Salary)", "Country='USA' or Country='UK'"));
+            TableAvgSalary = Convert.ToDouble(Table.Compute("Avg(Salary)", "Country='USA' or Country='UK'"));
+            TableMaxSalary = Convert.ToDouble(Table.Compute("Max(Salary)", "Country='USA' or Country='UK'"));
+            TableMinSalary = Convert.ToDouble(Table.Compute("Min(Salary)", "Country='USA' or Country='UK'"));
             Console.WriteLine("\t _________________________________________________________________________________________");
             Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
 
@@ -154,7 +154,7 @@ namespace DataTableExample
 
             Console.WriteLine("\nDelete Row\n");
 
-             ResaltRow = Table.Select("ID=3");
+            ResaltRow = Table.Select("ID=3");
 
             foreach (var Row in ResaltRow)
             {
@@ -183,7 +183,7 @@ namespace DataTableExample
 
             ResaltRow = Table.Select("ID=1");
 
-            foreach(var Row in ResaltRow)
+            foreach (var Row in ResaltRow)
             {
                 Row["Name"] = "yaseer";
                 Row["Salary"] = 10000;
@@ -216,16 +216,87 @@ namespace DataTableExample
                 Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", row["ID"], row["Name"], row["Country"], row["Salary"], row["Date"]);
             }
 
+            Console.WriteLine("\t|_________________________________________________________________________________________|\n");
+
+
+
+            Console.WriteLine("new Table using DataColumn");
+
+            Table = new DataTable();
+
+            DataColumn Column = new DataColumn();
+            Column.DataType = typeof(int);
+            Column.ColumnName = "ID";
+            Column.AutoIncrement = true;
+            Column.AutoIncrementSeed = 1;
+            Column.AutoIncrementStep = 1;
+            Column.Caption = "رقم الموظف";
+            Column.ReadOnly = true;
+            Column.Unique = true;
+
+            Table.Columns.Add(Column);
+
+
+            Column = new DataColumn();
+
+            Column.DataType = typeof(string);
+            Column.ColumnName = "Name";
+            Column.AutoIncrement = false;
+            Column.ReadOnly = false;
+            Column.Unique = false;
+            Column.Caption = "الاسم";
+            Table.Columns.Add(Column);
+
+            Column = new DataColumn();
+            Column.DataType = typeof(string);
+            Column.ColumnName = "Country";
+            Column.AutoIncrement = false;
+            Column.Unique = false;
+            Column.ReadOnly = false;
+            Column.Caption = "البلد";
+            Table.Columns.Add(Column);
+
+            Column = new DataColumn();
+            Column.DataType = typeof(Double);
+            Column.ColumnName = "Salary";
+            Column.AutoIncrement = false;
+            Column.ReadOnly = false;
+            Column.Unique = false;
+            Column.Caption = "الراتب";
+            Table.Columns.Add(Column);
+
+            Column = new DataColumn();
+
+            Column.DataType = typeof(DateTime);
+            Column.ColumnName = "Date";
+            Column.AutoIncrement = false;
+            Column.Unique = false;
+            Column.ReadOnly = false;
+            Column.Caption = "التاريخ";
+            Table.Columns.Add(Column);
+
+            DataColumn[] PK1 = new DataColumn[1];
+            PK1[0] = Table.Columns["ID"];
+            Table.PrimaryKey = PK1;
+
+
+            Table.Rows.Add(null, "John Doe", "USA", 50000.00, DateTime.Now);
+            Table.Rows.Add(null, "Jane Smith", "UK", 60000.00, DateTime.Now);
+            Table.Rows.Add(null, "Sam Brown", "Canada", 55000.00, DateTime.Now);
+            Table.Rows.Add(null, "Lisa White", "Australia", 70000.00, DateTime.Now);
+
+            Console.WriteLine("\t _________________________________________________________________________________________");
+            Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
+
+            foreach (DataRow row in Table.Rows)
+            {
+                Console.WriteLine("\t|-----------------------------------------------------------------------------------------|");
+                Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", row["ID"], row["Name"], row["Country"], row["Salary"], row["Date"]);
+            }
+
             Console.WriteLine("\t|_________________________________________________________________________________________|");
 
-
-
-
-
-
-
-
-
+           
 
         }
     }
