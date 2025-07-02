@@ -315,6 +315,30 @@ namespace DataTableExample
                
             }
 
+            Console.WriteLine("\t|_________________________________________________________________________________________|\n");
+
+
+
+          
+            
+            EmployeesDataView1.RowFilter = "Country='Australia' or Country='UK'";
+
+
+            Console.WriteLine("\nEmployees List from data view using Row filter :\n");
+
+
+            Console.WriteLine("\t _________________________________________________________________________________________");
+            Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
+
+            for (int i = 0; i < EmployeesDataView1.Count; i++)
+            {
+                Console.WriteLine("\t|-----------------------------------------------------------------------------------------|");
+                Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", EmployeesDataView1[i][0], EmployeesDataView1[i][1],
+                    EmployeesDataView1[i][2], EmployeesDataView1[i][3], EmployeesDataView1[i][4]);
+
+
+            }
+
             Console.WriteLine("\t|_________________________________________________________________________________________|");
 
         }
