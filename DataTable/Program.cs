@@ -284,6 +284,8 @@ namespace DataTableExample
             Table.Rows.Add(null, "Jane Smith", "UK", 60000.00, DateTime.Now);
             Table.Rows.Add(null, "Sam Brown", "Canada", 55000.00, DateTime.Now);
             Table.Rows.Add(null, "Lisa White", "Australia", 70000.00, DateTime.Now);
+            Table.Rows.Add(null, "Lisa White", "Australia", 70000.00, DateTime.Now);
+            Table.Rows.Add(null, "Jane Smith", "UK", 60000.00, DateTime.Now);
 
             Console.WriteLine("\t _________________________________________________________________________________________");
             Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
@@ -296,7 +298,24 @@ namespace DataTableExample
 
             Console.WriteLine("\t|_________________________________________________________________________________________|");
 
-           
+
+            DataView EmployeesDataView1 = Table.DefaultView;
+          
+            Console.WriteLine("\nEmployees List from data view:\n");
+
+            Console.WriteLine("\t _________________________________________________________________________________________");
+            Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", "ID", "Name", "Country", "Salary", "Date Of Birth");
+
+            for (int i = 0; i < EmployeesDataView1.Count; i++)
+            {
+                Console.WriteLine("\t|-----------------------------------------------------------------------------------------|");
+                Console.WriteLine("\t|{0,-4}|{1,-30}|{2,-20}|{3,-10}|{4,-21}|", EmployeesDataView1[i][0], EmployeesDataView1[i][1],
+                    EmployeesDataView1[i][2], EmployeesDataView1[i][3], EmployeesDataView1[i][4]);
+
+               
+            }
+
+            Console.WriteLine("\t|_________________________________________________________________________________________|");
 
         }
     }
